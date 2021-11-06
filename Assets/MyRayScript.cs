@@ -17,7 +17,7 @@ public class MyRayScript : MonoBehaviour
     }
 
     public int score = 0;
-    public SpawnObject objectSpawner;
+    
     RaycastHit hit;
     public void Cast()
     {
