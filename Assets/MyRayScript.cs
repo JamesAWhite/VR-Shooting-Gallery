@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MyRayScript : MonoBehaviour
 {
@@ -19,22 +20,26 @@ public class MyRayScript : MonoBehaviour
     public int score = 0;
     
     RaycastHit hit;
+    [SerializeField] private PlayQuickSound impact = null;
+
     public void Cast()
     {
         int layerMask = 1 << 3;
 
         if (Physics.Raycast(this.gameObject.transform.position, this.gameObject.transform.forward, out hit, Mathf.Infinity, layerMask))
         {
-            if (hit.transform.gameObject.name.Contains("shittydude"))
+            if (hit.transform.gameObject.name.Contains("Guy"))
             {
                 score++;
-                Debug.Log(score);
+                Debug.Log("Score: " + score);
+                Destroy(hit.transform.gameObject);
+                impact.Play();
+                
             }
-            Debug.Log(hit.transform.gameObject.name);
         }
         else
         {
-            Debug.Log("No Hit");
+            Debug.Log("No Hit. Score: " + score);
         }
     }
 }

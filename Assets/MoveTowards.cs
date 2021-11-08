@@ -9,7 +9,7 @@ public class MoveTowards : MonoBehaviour
 
     public void Start()
     {
-        target = new Vector3(Random.Range(-30, 30), Random.Range(5, 30), -30);
+        target = new Vector3(Random.Range(-80, 80), Random.Range(3, 80), -100);
         speed = Random.Range(8, 30);
 }
     private void Update()

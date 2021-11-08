@@ -12,13 +12,27 @@ public class ShootingGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if(waitTime > timer)
+        {
+
+        }
+        else
+        {
+            timer = 0.0f;
+            waitTime = Random.Range(1.0f, 5.0f);
+            Spawn();
+        }
     }
+
+    public float waitTime = 0.0f;
+    private float timer = 0.0f;
 
     [Tooltip("The object that will be spawned")]
     public GameObject originalObject = null;
 
-    [Tooltip("The transform where the object is spanwed")]
+    [Tooltip("The transform where the object is spawned")]
     public Transform spawnPosition = null;
 
     public void Spawn()
