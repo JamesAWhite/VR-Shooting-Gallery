@@ -20,12 +20,19 @@ public class SetScoreText : MonoBehaviour
     Text txt;
     public GameObject scoreSource;
     int s;
+    public int highScore = 0;
     
     public void set()
     {
         int s = scoreSource.GetComponent<MyRayScript>().score;
         txt = GetComponent<Text>();
         Debug.Log("Text set called with score " + s);
-        txt.text = "Score: " + s.ToString();
+        if (s > highScore)
+        {
+            highScore = s;
+            txt.text = "New high score! " + s.ToString();
+        }
+        else
+            txt.text = "Score: " + s.ToString() + " high score: " + highScore.ToString();
     }
 }
