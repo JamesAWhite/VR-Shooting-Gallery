@@ -8,7 +8,7 @@ public class SetScoreText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreSource = GameObject.Find("Revolver PBR");
+
     }
 
     // Update is called once per frame
@@ -23,8 +23,8 @@ public class SetScoreText : MonoBehaviour
     
     public void set()
     {
+        int s = scoreSource.GetComponent<MyRayScript>().score;
         txt = GetComponent<Text>();
-        s = scoreSource.GetComponent<MyRayScript>().score;
         Debug.Log("Text set called with score " + s);
         txt.text = "Score: " + s.ToString();
     }
