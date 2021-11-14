@@ -17,6 +17,11 @@ public class MyRayScript : MonoBehaviour
         
     }
 
+    public void ResetScore()
+    {
+        score = 0;
+    }
+
     public int score = 0;
     
     RaycastHit hit;
